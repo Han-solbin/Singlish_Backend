@@ -9,17 +9,11 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class MemberResponse {
-
     private Long id;
+    private String email;
+    private String password;
     private String userId;
     private String userName;
-    private String email;
-
-    public MemberResponse(Long id, String userId, String password, String userName, String email, boolean isDeleted){
-        this.id = id;
-        this.userId = userId;
-        this.userName = userName;
-        this.email = email;
-    }
+    private String profileImgUrl;
 
 }

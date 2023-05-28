@@ -21,8 +21,6 @@ public class MemberService {
     }
 
     public Member getMember(Long id) {
-        Member member = memberRepository.findById(id).orElseThrow(()-> new MemberException(MemberErrorCode.MEMBER_NOT_EXIST));
-        return member;
+        return memberRepository.findById(id).orElseThrow(()-> new MemberException(MemberErrorCode.MEMBER_NOT_EXIST));
     }
-
 }
