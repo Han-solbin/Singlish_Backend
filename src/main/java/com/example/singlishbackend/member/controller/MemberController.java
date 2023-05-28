@@ -20,6 +20,6 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public MemberResponse getMember(@PathVariable("id") Long id) {
-        return MemberDtoAssembler.MemberResponse(memberService.getMember(id));
+        return MemberDtoAssembler.memberResponse(memberService.getMember(id));
     }
 }
