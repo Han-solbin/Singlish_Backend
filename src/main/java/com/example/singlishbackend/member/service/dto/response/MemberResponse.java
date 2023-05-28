@@ -1,7 +1,5 @@
 package com.example.singlishbackend.member.service.dto.response;
 
-import com.example.singlishbackend.member.domain.Member;
-import com.example.singlishbackend.member.domain.MemberRepository;
 import lombok.*;
 
 @Getter

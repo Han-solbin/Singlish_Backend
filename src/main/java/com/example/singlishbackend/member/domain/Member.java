@@ -44,9 +44,6 @@ public class Member implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("USER"));
     } //이부분 처리하는거 이해해야함
-    public Long getId() {
-        return id;
-    }
     @Override
     public String getPassword() {
         return password;
