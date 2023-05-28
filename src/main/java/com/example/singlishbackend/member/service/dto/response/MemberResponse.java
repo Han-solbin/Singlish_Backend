@@ -5,7 +5,7 @@ import com.example.singlishbackend.member.domain.MemberRepository;
 import lombok.*;
 
 @Getter
-@NoArgsConstructor//아무런 매개변수가 없는 생성자, 접근레벨 private entity의 경우에는 private 못 씀.
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class MemberResponse {
