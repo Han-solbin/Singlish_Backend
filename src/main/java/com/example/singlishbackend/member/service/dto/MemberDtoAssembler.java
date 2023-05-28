@@ -9,6 +9,6 @@ public class MemberDtoAssembler {
     }
 
     public static MemberResponse MemberResponse(Member member) {
-        return new MemberResponse(member.getId(), member.getUserId(), member.getUsername(), member.getPassword() , member.getEmail(), member.getIsDeleted());
+        return new MemberResponse(member.getId(), member.getEmail(), member.getPassword(), member.getUserId() , member.getUsername(), member.getProfileImg_Url());
     }
 }
