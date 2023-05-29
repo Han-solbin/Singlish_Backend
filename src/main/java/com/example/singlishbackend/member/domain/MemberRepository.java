@@ -1,6 +1,6 @@
 package com.example.singlishbackend.member.domain;
 
-import com.example.singlishbackend.course.domain.Course;
+import com.example.singlishbackend.member.domain.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

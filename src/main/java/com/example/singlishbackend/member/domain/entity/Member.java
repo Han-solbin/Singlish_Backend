@@ -1,13 +1,14 @@
-package com.example.singlishbackend.member.domain;
+package com.example.singlishbackend.member.domain.entity;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import java.util.List;
+
+import com.example.singlishbackend.course.domain.Course;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 @Entity
 @Table(name = "members")
 @NoArgsConstructor
-@DynamicUpdate // JPA Entity에 사용하는 어노테이션으로, 실제 값이 변경된 컬럼으로만 update 쿼리를 만드는 기능이다. DynamicUpdate는 성능상 손해가 있다. 몇몇개의 컬럼만 자주 업데이트 하는 경우에 사용한다.
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 @EqualsAndHashCode(of = "id") // equals 메소드와 hashcode 메소드 (꼭 같이 재정의해야 함)
 public class Member implements UserDetails {
     @Id
@@ -40,6 +41,12 @@ public class Member implements UserDetails {
     private String userName;
     @Column(nullable = false)
     private String profileImg_Url;
+    @OneToMany(mappedBy = "member")
+    private List<Subscribe> subscribes = new ArrayList<>();
+
+    public List<Subscribe> getSubscribes() {
+        return subscribes;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("USER"));
