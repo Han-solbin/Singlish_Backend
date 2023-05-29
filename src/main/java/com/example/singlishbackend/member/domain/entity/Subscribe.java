@@ -26,6 +26,6 @@ public class Subscribe {
     private Course course;
     @Column(nullable = false)
     private Boolean isActivated;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private float rating;
 }
